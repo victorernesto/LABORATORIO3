@@ -1,0 +1,2 @@
+C:\Users\50376\Documents\GitHub\LABORATORIO3\PROYECTOF\PROYECTOF\obj\Debug\PROYECTOF.csproj.AssemblyReference.cache
+C:\Users\50376\Documents\GitHub\LABORATORIO3\PROYECTOF\PROYECTOF\obj\Debug\PROYECTOF.csproj.CoreCompileInputs.cache
