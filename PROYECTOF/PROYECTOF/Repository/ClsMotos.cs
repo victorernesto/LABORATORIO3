@@ -40,15 +40,11 @@ namespace PROYECTOF.Repository
         {
             using(MOTOSEntities motosDatos = new MOTOSEntities())
             {
-                List<MOTOS> listmotos = motosDatos.PROVEDOR.ToList();
-
+                List<MOTOS> listmotos = motosDatos.PROVEDOR.ToList()
+                   return (listmotos);
             }
-            return ();
+   
         }
     }
 }
 
-/*public void Delete(estudiante estudiante) 
- * { using (EstudiantesEntities conexionBd = new EstudiantesEntities()) 
- * { estudiante = conexionBd.estudiante.Find(estudiante.idEstudiante); 
- * conexionBd.estudiante.Remove(estudiante); conexionBd.SaveChanges();*/
