@@ -36,15 +36,15 @@ namespace PROYECTOF.Repository
             
         }
 
-        public List<MOTOS> ListOfDataOfTableMotos()
+       /* public List<MOTOS> ListOfDataOfTableMotos()
         {
             using(MOTOSEntities motosDatos = new MOTOSEntities())
             {
                 List<MOTOS> listmotos = motosDatos.PROVEDOR.ToList()
-                   return (listmotos);
+                   return listmotos;
             }
    
-        }
+        }*/
     }
 }
 

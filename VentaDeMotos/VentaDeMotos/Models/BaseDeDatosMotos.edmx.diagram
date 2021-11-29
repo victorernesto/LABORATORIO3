@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1aa150a540a542dea4312deec7eb9400" Name="Diagram1">
+        <EntityTypeShape EntityType="VENTA_MOTOModel.CLIENTES" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTA_MOTOModel.DATOS" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTA_MOTOModel.DATOSMOTOS" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTA_MOTOModel.EMPLEADO" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTA_MOTOModel.FACTURA" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTA_MOTOModel.MOTO" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTA_MOTOModel.PROVEDORES" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTA_MOTOModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTA_MOTOModel.VENTA" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="VENTA_MOTOModel.FK__CLIENTES__ID_DAT__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTA_MOTOModel.FK__CLIENTES__ID_DAT__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTA_MOTOModel.FK__FACTURA__ID_CLIE__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTA_MOTOModel.FK__FACTURA__ID_CLIE__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTA_MOTOModel.FK__EMPLEADO__ID_DAT__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTA_MOTOModel.FK__PROVEDORE__ID_DA__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTA_MOTOModel.FK__PROVEDORE__ID_DA__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTA_MOTOModel.FK__PROVEDORE__ID_DA__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTA_MOTOModel.FK__PROVEDORE__ID_DA__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTA_MOTOModel.FK__MOTO__ID_DATOSM__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTA_MOTOModel.FK__MOTO__ID_DATOSM__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTA_MOTOModel.FK__FACTURA__ID_MOTO__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTA_MOTOModel.FK__VENTA__ID_PROVED__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTA_MOTOModel.FK__VENTA__ID_PROVED__6383C8BA" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

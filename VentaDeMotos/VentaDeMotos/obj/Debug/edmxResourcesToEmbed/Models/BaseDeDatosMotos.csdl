@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VENTA_MOTOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CLIENTES">
+    <Key>
+      <PropertyRef Name="ID_CLIENTE" />
+    </Key>
+    <Property Name="ID_CLIENTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_DATOS" Type="Int32" />
+    <NavigationProperty Name="DATOS" Relationship="Self.FK__CLIENTES__ID_DAT__48CFD27E" FromRole="CLIENTES" ToRole="DATOS" />
+    <NavigationProperty Name="DATOS1" Relationship="Self.FK__CLIENTES__ID_DAT__5FB337D6" FromRole="CLIENTES" ToRole="DATOS" />
+    <NavigationProperty Name="FACTURA" Relationship="Self.FK__FACTURA__ID_CLIE__5DCAEF64" FromRole="CLIENTES" ToRole="FACTURA" />
+    <NavigationProperty Name="FACTURA1" Relationship="Self.FK__FACTURA__ID_CLIE__619B8048" FromRole="CLIENTES" ToRole="FACTURA" />
+  </EntityType>
+  <EntityType Name="DATOS">
+    <Key>
+      <PropertyRef Name="ID_DATOS" />
+    </Key>
+    <Property Name="ID_DATOS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TELEFONO" Type="Int32" />
+    <Property Name="DEPARTAMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MUNICIPIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EDAD" Type="Int32" />
+    <Property Name="AREA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DUI" Type="Int32" />
+    <NavigationProperty Name="CLIENTES" Relationship="Self.FK__CLIENTES__ID_DAT__48CFD27E" FromRole="DATOS" ToRole="CLIENTES" />
+    <NavigationProperty Name="CLIENTES1" Relationship="Self.FK__CLIENTES__ID_DAT__5FB337D6" FromRole="DATOS" ToRole="CLIENTES" />
+    <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__EMPLEADO__ID_DAT__66603565" FromRole="DATOS" ToRole="EMPLEADO" />
+    <NavigationProperty Name="PROVEDORES" Relationship="Self.FK__PROVEDORE__ID_DA__49C3F6B7" FromRole="DATOS" ToRole="PROVEDORES" />
+    <NavigationProperty Name="PROVEDORES1" Relationship="Self.FK__PROVEDORE__ID_DA__4AB81AF0" FromRole="DATOS" ToRole="PROVEDORES" />
+    <NavigationProperty Name="PROVEDORES2" Relationship="Self.FK__PROVEDORE__ID_DA__4BAC3F29" FromRole="DATOS" ToRole="PROVEDORES" />
+    <NavigationProperty Name="PROVEDORES3" Relationship="Self.FK__PROVEDORE__ID_DA__60A75C0F" FromRole="DATOS" ToRole="PROVEDORES" />
+  </EntityType>
+  <EntityType Name="DATOSMOTOS">
+    <Key>
+      <PropertyRef Name="ID_DATOSM" />
+    </Key>
+    <Property Name="ID_DATOSM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MOTOR" Type="Int32" />
+    <Property Name="COLOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AÑO" Type="Int32" />
+    <Property Name="TIPO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MOTO" Relationship="Self.FK__MOTO__ID_DATOSM__44FF419A" FromRole="DATOSMOTOS" ToRole="MOTO" />
+    <NavigationProperty Name="MOTO1" Relationship="Self.FK__MOTO__ID_DATOSM__5EBF139D" FromRole="DATOSMOTOS" ToRole="MOTO" />
+  </EntityType>
+  <EntityType Name="EMPLEADO">
+    <Key>
+      <PropertyRef Name="ID_EMPLEADO" />
+    </Key>
+    <Property Name="ID_EMPLEADO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_DATOS" Type="Int32" />
+    <NavigationProperty Name="DATOS" Relationship="Self.FK__EMPLEADO__ID_DAT__66603565" FromRole="EMPLEADO" ToRole="DATOS" />
+  </EntityType>
+  <EntityType Name="FACTURA">
+    <Key>
+      <PropertyRef Name="FACTURA_ID" />
+    </Key>
+    <Property Name="FACTURA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_CLIENTE" Type="Int32" />
+    <Property Name="ID_MOTO" Type="Int32" />
+    <Property Name="PRECIO" Type="Double" />
+    <Property Name="FECHA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMPRESA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CLIENTES" Relationship="Self.FK__FACTURA__ID_CLIE__5DCAEF64" FromRole="FACTURA" ToRole="CLIENTES" />
+    <NavigationProperty Name="CLIENTES1" Relationship="Self.FK__FACTURA__ID_CLIE__619B8048" FromRole="FACTURA" ToRole="CLIENTES" />
+    <NavigationProperty Name="MOTO" Relationship="Self.FK__FACTURA__ID_MOTO__628FA481" FromRole="FACTURA" ToRole="MOTO" />
+  </EntityType>
+  <EntityType Name="MOTO">
+    <Key>
+      <PropertyRef Name="ID_MOTO" />
+    </Key>
+    <Property Name="ID_MOTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MARCA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_DATOSM" Type="Int32" />
+    <NavigationProperty Name="DATOSMOTOS" Relationship="Self.FK__MOTO__ID_DATOSM__44FF419A" FromRole="MOTO" ToRole="DATOSMOTOS" />
+    <NavigationProperty Name="DATOSMOTOS1" Relationship="Self.FK__MOTO__ID_DATOSM__5EBF139D" FromRole="MOTO" ToRole="DATOSMOTOS" />
+    <NavigationProperty Name="FACTURA" Relationship="Self.FK__FACTURA__ID_MOTO__628FA481" FromRole="MOTO" ToRole="FACTURA" />
+  </EntityType>
+  <EntityType Name="PROVEDORES">
+    <Key>
+      <PropertyRef Name="ID_PROVEDOR" />
+    </Key>
+    <Property Name="ID_PROVEDOR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_DATOS" Type="Int32" />
+    <NavigationProperty Name="DATOS" Relationship="Self.FK__PROVEDORE__ID_DA__49C3F6B7" FromRole="PROVEDORES" ToRole="DATOS" />
+    <NavigationProperty Name="DATOS1" Relationship="Self.FK__PROVEDORE__ID_DA__4AB81AF0" FromRole="PROVEDORES" ToRole="DATOS" />
+    <NavigationProperty Name="DATOS2" Relationship="Self.FK__PROVEDORE__ID_DA__4BAC3F29" FromRole="PROVEDORES" ToRole="DATOS" />
+    <NavigationProperty Name="DATOS3" Relationship="Self.FK__PROVEDORE__ID_DA__60A75C0F" FromRole="PROVEDORES" ToRole="DATOS" />
+    <NavigationProperty Name="VENTA" Relationship="Self.FK__VENTA__ID_PROVED__4E88ABD4" FromRole="PROVEDORES" ToRole="VENTA" />
+    <NavigationProperty Name="VENTA1" Relationship="Self.FK__VENTA__ID_PROVED__6383C8BA" FromRole="PROVEDORES" ToRole="VENTA" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="VENTA">
+    <Key>
+      <PropertyRef Name="ID_VENTA" />
+    </Key>
+    <Property Name="ID_VENTA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_PROVEDOR" Type="Int32" />
+    <Property Name="FACTURA_ID" Type="Int32" />
+    <NavigationProperty Name="PROVEDORES" Relationship="Self.FK__VENTA__ID_PROVED__4E88ABD4" FromRole="VENTA" ToRole="PROVEDORES" />
+    <NavigationProperty Name="PROVEDORES1" Relationship="Self.FK__VENTA__ID_PROVED__6383C8BA" FromRole="VENTA" ToRole="PROVEDORES" />
+  </EntityType>
+  <Association Name="FK__CLIENTES__ID_DAT__48CFD27E">
+    <End Role="DATOS" Type="Self.DATOS" Multiplicity="0..1" />
+    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DATOS">
+        <PropertyRef Name="ID_DATOS" />
+      </Principal>
+      <Dependent Role="CLIENTES">
+        <PropertyRef Name="ID_DATOS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CLIENTES__ID_DAT__5FB337D6">
+    <End Role="DATOS" Type="Self.DATOS" Multiplicity="0..1" />
+    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DATOS">
+        <PropertyRef Name="ID_DATOS" />
+      </Principal>
+      <Dependent Role="CLIENTES">
+        <PropertyRef Name="ID_DATOS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FACTURA__ID_CLIE__5DCAEF64">
+    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="0..1" />
+    <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTES">
+        <PropertyRef Name="ID_CLIENTE" />
+      </Principal>
+      <Dependent Role="FACTURA">
+        <PropertyRef Name="ID_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FACTURA__ID_CLIE__619B8048">
+    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="0..1" />
+    <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTES">
+        <PropertyRef Name="ID_CLIENTE" />
+      </Principal>
+      <Dependent Role="FACTURA">
+        <PropertyRef Name="ID_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLEADO__ID_DAT__66603565">
+    <End Role="DATOS" Type="Self.DATOS" Multiplicity="0..1" />
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DATOS">
+        <PropertyRef Name="ID_DATOS" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="ID_DATOS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PROVEDORE__ID_DA__49C3F6B7">
+    <End Role="DATOS" Type="Self.DATOS" Multiplicity="0..1" />
+    <End Role="PROVEDORES" Type="Self.PROVEDORES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DATOS">
+        <PropertyRef Name="ID_DATOS" />
+      </Principal>
+      <Dependent Role="PROVEDORES">
+        <PropertyRef Name="ID_DATOS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PROVEDORE__ID_DA__4AB81AF0">
+    <End Role="DATOS" Type="Self.DATOS" Multiplicity="0..1" />
+    <End Role="PROVEDORES" Type="Self.PROVEDORES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DATOS">
+        <PropertyRef Name="ID_DATOS" />
+      </Principal>
+      <Dependent Role="PROVEDORES">
+        <PropertyRef Name="ID_DATOS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PROVEDORE__ID_DA__4BAC3F29">
+    <End Role="DATOS" Type="Self.DATOS" Multiplicity="0..1" />
+    <End Role="PROVEDORES" Type="Self.PROVEDORES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DATOS">
+        <PropertyRef Name="ID_DATOS" />
+      </Principal>
+      <Dependent Role="PROVEDORES">
+        <PropertyRef Name="ID_DATOS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PROVEDORE__ID_DA__60A75C0F">
+    <End Role="DATOS" Type="Self.DATOS" Multiplicity="0..1" />
+    <End Role="PROVEDORES" Type="Self.PROVEDORES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DATOS">
+        <PropertyRef Name="ID_DATOS" />
+      </Principal>
+      <Dependent Role="PROVEDORES">
+        <PropertyRef Name="ID_DATOS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MOTO__ID_DATOSM__44FF419A">
+    <End Role="DATOSMOTOS" Type="Self.DATOSMOTOS" Multiplicity="0..1" />
+    <End Role="MOTO" Type="Self.MOTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DATOSMOTOS">
+        <PropertyRef Name="ID_DATOSM" />
+      </Principal>
+      <Dependent Role="MOTO">
+        <PropertyRef Name="ID_DATOSM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MOTO__ID_DATOSM__5EBF139D">
+    <End Role="DATOSMOTOS" Type="Self.DATOSMOTOS" Multiplicity="0..1" />
+    <End Role="MOTO" Type="Self.MOTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DATOSMOTOS">
+        <PropertyRef Name="ID_DATOSM" />
+      </Principal>
+      <Dependent Role="MOTO">
+        <PropertyRef Name="ID_DATOSM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FACTURA__ID_MOTO__628FA481">
+    <End Role="MOTO" Type="Self.MOTO" Multiplicity="0..1" />
+    <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOTO">
+        <PropertyRef Name="ID_MOTO" />
+      </Principal>
+      <Dependent Role="FACTURA">
+        <PropertyRef Name="ID_MOTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VENTA__ID_PROVED__4E88ABD4">
+    <End Role="PROVEDORES" Type="Self.PROVEDORES" Multiplicity="0..1" />
+    <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEDORES">
+        <PropertyRef Name="ID_PROVEDOR" />
+      </Principal>
+      <Dependent Role="VENTA">
+        <PropertyRef Name="ID_PROVEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VENTA__ID_PROVED__6383C8BA">
+    <End Role="PROVEDORES" Type="Self.PROVEDORES" Multiplicity="0..1" />
+    <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEDORES">
+        <PropertyRef Name="ID_PROVEDOR" />
+      </Principal>
+      <Dependent Role="VENTA">
+        <PropertyRef Name="ID_PROVEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VENTA_MOTOEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" />
+    <EntitySet Name="DATOS" EntityType="Self.DATOS" />
+    <EntitySet Name="DATOSMOTOS" EntityType="Self.DATOSMOTOS" />
+    <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" />
+    <EntitySet Name="FACTURA" EntityType="Self.FACTURA" />
+    <EntitySet Name="MOTO" EntityType="Self.MOTO" />
+    <EntitySet Name="PROVEDORES" EntityType="Self.PROVEDORES" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="VENTA" EntityType="Self.VENTA" />
+    <AssociationSet Name="FK__CLIENTES__ID_DAT__48CFD27E" Association="Self.FK__CLIENTES__ID_DAT__48CFD27E">
+      <End Role="DATOS" EntitySet="DATOS" />
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CLIENTES__ID_DAT__5FB337D6" Association="Self.FK__CLIENTES__ID_DAT__5FB337D6">
+      <End Role="DATOS" EntitySet="DATOS" />
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FACTURA__ID_CLIE__5DCAEF64" Association="Self.FK__FACTURA__ID_CLIE__5DCAEF64">
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+      <End Role="FACTURA" EntitySet="FACTURA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FACTURA__ID_CLIE__619B8048" Association="Self.FK__FACTURA__ID_CLIE__619B8048">
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+      <End Role="FACTURA" EntitySet="FACTURA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLEADO__ID_DAT__66603565" Association="Self.FK__EMPLEADO__ID_DAT__66603565">
+      <End Role="DATOS" EntitySet="DATOS" />
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PROVEDORE__ID_DA__49C3F6B7" Association="Self.FK__PROVEDORE__ID_DA__49C3F6B7">
+      <End Role="DATOS" EntitySet="DATOS" />
+      <End Role="PROVEDORES" EntitySet="PROVEDORES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PROVEDORE__ID_DA__4AB81AF0" Association="Self.FK__PROVEDORE__ID_DA__4AB81AF0">
+      <End Role="DATOS" EntitySet="DATOS" />
+      <End Role="PROVEDORES" EntitySet="PROVEDORES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PROVEDORE__ID_DA__4BAC3F29" Association="Self.FK__PROVEDORE__ID_DA__4BAC3F29">
+      <End Role="DATOS" EntitySet="DATOS" />
+      <End Role="PROVEDORES" EntitySet="PROVEDORES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PROVEDORE__ID_DA__60A75C0F" Association="Self.FK__PROVEDORE__ID_DA__60A75C0F">
+      <End Role="DATOS" EntitySet="DATOS" />
+      <End Role="PROVEDORES" EntitySet="PROVEDORES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MOTO__ID_DATOSM__44FF419A" Association="Self.FK__MOTO__ID_DATOSM__44FF419A">
+      <End Role="DATOSMOTOS" EntitySet="DATOSMOTOS" />
+      <End Role="MOTO" EntitySet="MOTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MOTO__ID_DATOSM__5EBF139D" Association="Self.FK__MOTO__ID_DATOSM__5EBF139D">
+      <End Role="DATOSMOTOS" EntitySet="DATOSMOTOS" />
+      <End Role="MOTO" EntitySet="MOTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FACTURA__ID_MOTO__628FA481" Association="Self.FK__FACTURA__ID_MOTO__628FA481">
+      <End Role="MOTO" EntitySet="MOTO" />
+      <End Role="FACTURA" EntitySet="FACTURA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VENTA__ID_PROVED__4E88ABD4" Association="Self.FK__VENTA__ID_PROVED__4E88ABD4">
+      <End Role="PROVEDORES" EntitySet="PROVEDORES" />
+      <End Role="VENTA" EntitySet="VENTA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VENTA__ID_PROVED__6383C8BA" Association="Self.FK__VENTA__ID_PROVED__6383C8BA">
+      <End Role="PROVEDORES" EntitySet="PROVEDORES" />
+      <End Role="VENTA" EntitySet="VENTA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

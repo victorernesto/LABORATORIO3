@@ -1,0 +1,36 @@
+﻿@model List< VentaDeMotos.Models.MOTO>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    /**/
+}
+
+    <div style=text-align:center>
+        <h1>MOTOS DISPONIBLES</h1>
+    </div>
+
+    <table class="table table-dark table-striped">
+        <thead class="table-info">
+        <th >ID</th>
+        <th>MARCA</th>
+        <th>DESEA</th>
+        <th></th>
+
+        </thead>
+        <tbody>
+            @foreach (var mt in Model)
+            {
+                <tr >
+                    <td >@mt.ID_MOTO</td>
+                    <td >@mt.MARCA</td>
+                    <td class="btn btn-info">@Html.ActionLink("Comprar", "COMPRAR", new { id = mt.ID_MOTO })</td>
+
+
+                </tr>
+              
+            }
+        </tbody>
+
+    </table>
+
+
