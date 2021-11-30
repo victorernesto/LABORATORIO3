@@ -21,6 +21,8 @@ namespace VentaDeMotos.Repository
             }
         }
 
+    
+
         public void Comprar(MOTO Moto)
         {
             using (VENTA_MOTOEntities bdmotos = new VENTA_MOTOEntities())
